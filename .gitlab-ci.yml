@@ -41,6 +41,6 @@ push-docker-hub:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME n0r1skcom/$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-    - docker login -u $DOCKER_USER -p DOCKER_PASSWD
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWD
     - docker push n0r1skcom/$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
   when: manual

@@ -5,7 +5,7 @@ variables:
   DOCKER_DRIVER: overlay
 
 services:
-  - docker:17.09
+  - docker:dind
 
 before_script:
   - echo $CI_COMMIT_REF_NAME

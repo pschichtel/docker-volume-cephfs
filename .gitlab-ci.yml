@@ -20,9 +20,9 @@ docker-build test:
     - docker export tmp | tar -x -C ./plugin/rootfs
     - cp config.json ./plugin/
     - docker rm -vf tmp
-    - docker plugin create $CI_PROJECT_NAME:$CI_COMMIT_REF_NAME ./plugin
+    - docker plugin create n0r1skcom/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME ./plugin
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWD
-    - docker plugin push $CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
+    - docker plugin push n0r1skcom/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
   only:
     - branches
   when: manual

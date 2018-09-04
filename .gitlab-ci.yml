@@ -42,5 +42,5 @@ push-docker-hub:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME n0r1skcom/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWD
-    - docker push n0r1skcom/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
+    - docker plugin push n0r1skcom/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
   when: manual

@@ -14,7 +14,7 @@ docker-build test:
   stage: build
   allow_failure: false
   script:
-    - docker build --pull -t $CI_COMMIT_REF_NAME .
+    - docker build --pull -t $CI_COMMIT_REF_NAME:rootfs .
     - mkdir -p ./plugin/rootfs
     - docker create --name tmp $CI_COMMIT_REF_NAME:rootfs
     - docker export tmp | tar -x -C ./plugin/rootfs

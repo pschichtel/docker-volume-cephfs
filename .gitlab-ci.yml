@@ -33,4 +33,10 @@ docker-build prod:
   only:
     - tags
   when: manual
+  
+push-docker-hub:
+  stage: push
+  allow_failure: false
+  script:
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME n0r1skcom/$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
 

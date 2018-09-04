@@ -35,7 +35,7 @@ docker-build prod:
   when: manual
   
 push-docker-hub:
-  stage: push
+  stage: deploy
   allow_failure: false
   script:
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME n0r1skcom/$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME

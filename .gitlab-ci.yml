@@ -15,9 +15,14 @@ docker-build test:
   allow_failure: false
   script:
     - docker build --pull -t $CI_COMMIT_REF_NAME .
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker image tag $CI_COMMIT_REF_NAME $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    - mkdir -p ./plugin/rootfs
+    - docker create --name tmp $CI_COMMIT_REF_NAME:rootfs
+    - docker export tmp | tar -x -C ./plugin/rootfs
+    - cp config.json ./plugin/
+    - docker rm -vf tmp
+    - docker plugin create $CI_PROJECT_NAME:$CI_COMMIT_REF_NAME ./plugin
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWD
+    - docker plugin push $CI_PROJECT_NAME:$CI_COMMIT_REF_NAME
   only:
     - branches
   when: manual

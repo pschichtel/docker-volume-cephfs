@@ -1,0 +1,79 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "PbR6ZKoLeSZl8aXxDQqXih0wSgE=",
+			"path": "github.com/Microsoft/go-winio",
+			"revision": "97e4973ce50b2ff5f09635a57e2b88a037aae829",
+			"revisionTime": "2018-08-23T22:24:21Z"
+		},
+		{
+			"checksumSHA1": "uqjFeI7DxzsQew9ma1Cgz7WB5ns=",
+			"path": "github.com/Sirupsen/logrus",
+			"revision": "78fa2915c1fa231f62e0438da493688c21ca678e",
+			"revisionTime": "2018-08-30T20:11:51Z"
+		},
+		{
+			"checksumSHA1": "zg16zjZTQ9R89+UOLmEZxHgxDtM=",
+			"path": "github.com/coreos/go-systemd/activation",
+			"revision": "eee3db372b31153ca0b90702e165948699803fd0",
+			"revisionTime": "2018-08-28T14:03:53Z"
+		},
+		{
+			"checksumSHA1": "GDLNLD3FL8uDHPvbAeFUlc0omEc=",
+			"path": "github.com/docker/go-connections/sockets",
+			"revision": "97c2040d34dfae1d1b1275fa3a78dbdd2f41cf7e",
+			"revisionTime": "2018-08-21T09:36:06Z"
+		},
+		{
+			"checksumSHA1": "e/cSY11dRBYpw1MpxpKLDG0NO28=",
+			"path": "github.com/docker/go-plugins-helpers/sdk",
+			"revision": "39e3ca757823ff8ec10601ed043c02d6d4074be8",
+			"revisionTime": "2018-07-04T13:48:13Z"
+		},
+		{
+			"checksumSHA1": "F/a3kRy9UkBBtaCHI/Pt5QJcIaw=",
+			"path": "github.com/docker/go-plugins-helpers/volume",
+			"revision": "39e3ca757823ff8ec10601ed043c02d6d4074be8",
+			"revisionTime": "2018-07-04T13:48:13Z"
+		},
+		{
+			"checksumSHA1": "y7VkMyn85Cft0aLB8Rb1+Le1dN0=",
+			"path": "github.com/google/uuid",
+			"revision": "e704694aed0ea004bb7eb1fc2e911d048a54606a",
+			"revisionTime": "2018-08-28T18:15:55Z"
+		},
+		{
+			"checksumSHA1": "BGm8lKZmvJbf/YOJLeL1rw2WVjA=",
+			"path": "golang.org/x/crypto/ssh/terminal",
+			"revision": "182538f80094b6a8efaade63a8fd8e0d9d5843dd",
+			"revisionTime": "2018-08-30T18:34:03Z"
+		},
+		{
+			"checksumSHA1": "W+3cWL5KjepzF1XvyMSBUYfa8x8=",
+			"path": "golang.org/x/net/internal/socks",
+			"revision": "8a410e7b638dca158bf9e766925842f6651ff828",
+			"revisionTime": "2018-08-25T16:15:26Z"
+		},
+		{
+			"checksumSHA1": "UrFs0T7kkYsUxJG5bsJt7KB8ejI=",
+			"path": "golang.org/x/net/proxy",
+			"revision": "8a410e7b638dca158bf9e766925842f6651ff828",
+			"revisionTime": "2018-08-25T16:15:26Z"
+		},
+		{
+			"checksumSHA1": "fg6cP5KbsnnxyZshqa32ZT9DgKk=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "2b024373dcd9800f0cae693839fac6ede8d64a8c",
+			"revisionTime": "2018-09-03T19:00:32Z"
+		},
+		{
+			"checksumSHA1": "DssjltU28TeBlMe16egT15lW0VA=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "2b024373dcd9800f0cae693839fac6ede8d64a8c",
+			"revisionTime": "2018-09-03T19:00:32Z"
+		}
+	],
+	"rootPath": "docker-volume-cephfs"
+}

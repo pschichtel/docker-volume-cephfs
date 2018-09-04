@@ -1,0 +1,45 @@
+{
+  "description": "cephFS plugin for Docker",
+  "documentation": "",
+  "entrypoint": [
+    "/docker-volume-cephfs"
+  ],
+  "env": [
+    {
+      "name": "DEBUG",
+      "settable": [
+        "value"
+      ],
+      "value": "0"
+    }
+  ],
+  "interface": {
+    "socket": "cephfs.sock",
+    "types": [
+      "docker.volumedriver/1.0"
+    ]
+  },
+  "linux": {
+    "capabilities": [
+      "CAP_SYS_ADMIN"
+    ]
+  },
+  "mounts": [
+    {
+      "destination": "/mnt/state",
+      "options": [
+        "rbind"
+      ],
+      "name": "state",
+      "source": "/var/lib/docker/plugins/",
+      "settable": [
+        "source"
+      ],
+      "type": "bind"
+    }
+  ],
+  "network": {
+    "type": "host"
+  },
+  "propagatedmount": "/mnt/volumes"
+}

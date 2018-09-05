@@ -1,5 +1,5 @@
-PLUGIN_NAME = n0r1skcom/cephfs
-PLUGIN_TAG ?= next
+PLUGIN_NAME = n0r1skcom/docker-volume-cephfs
+PLUGIN_TAG ?= master
 
 all: clean rootfs create
 

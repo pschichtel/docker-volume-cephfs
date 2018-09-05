@@ -6,7 +6,7 @@ Documentation is work in progress...
 
 # Docker Volume Plugin for CephFS
 
-There are quite a few plugins already which can be used to mount a CephFS into a Docker volume. But either they are old (> 2 years) or the code isn't really structured. Therefore I decide to write a new one based on the SSHFS plugin mentioned above because we need it at work and ... just for fun. :-)
+There are quite a few plugins already which can be used to mount a CephFS into a Docker volume. But either they are old (> 2 years) or the code isn't really structured. Therefore I decide to write a new one based on the SSHFS plugin mentioned above because we need it at work and ... just for fun. :smile:
 
 # Prerequisites
 

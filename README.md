@@ -14,7 +14,7 @@ This plugin just executes the `mount` command to mount a CephFS filesystem and t
 
 Furthermore an already existing CephFS filesystem in the Ceph cluster ist required.
 
-All Docker Volume Plugin parameters are mandatory:
+The following Docker Volume Plugin parameters are mandatory:
 ~~~yaml
     driver_opts:
       name: nginx
@@ -22,6 +22,8 @@ All Docker Volume Plugin parameters are mandatory:
       secret: AQDEJ41bnfunnyUl8ArFKDYYv12TRoWJuyg==
       monitors: ceph-mon1:6789,ceph-mon1.147:6789
 ~~~
+
+**Optional**: If your Kernel supports it, you can add any number of additional mount parameters by specifying them via the `-o` command line switch or by specifying them as yaml option in Docker Swarm yaml (see below)
 
 
 # Installation
@@ -48,11 +50,34 @@ ID                  NAME                                    DESCRIPTION         
 8e9cdeec3312        n0r1skcom/docker-volume-cephfs:latest   cephFS plugin for Docker   true
 ~~~
 
+# Enable debug mode
+During installation:
+~~~bash
+> docker plugin install n0r1skcom/docker-volume-cephfs DEBUG=1
+~~~
+
+After installation:
+~~~bash
+> docker plugin disable n0r1skcom/docker-volume-cephfs
+> docker plugin set n0r1skcom/docker-volume-cephfs DEBUG=1
+~~~
+
+Check if debug is enabled:
+~~~bash
+> docker plugin inspect n0r1skcom/docker-volume-cephfs --format "{{ .Settings.Env }}"
+[DEBUG=1]
+~~~
+
 # Docker manual usage
 
 Create a Docker volume:
 ~~~bash
 > docker volume create -d n0r1skcom/docker-volume-cephfs -o name=nginx -o path=/container/nginx -o secret=AQDEJ41bn7B8funnyl8ArFKDYYv12TRoWJuyg== -o monitors=ceph-mon1:6789,cephmon2:6789 cephfs_data
+~~~
+
+**Optional**: Add more parameters to for the CephFS mount like `mds_namespace`:
+~~~bash
+> docker volume create -d n0r1skcom/docker-volume-cephfs -o name=nginx -o path=/container/nginx -o secret=AQDEJ41bn7B8funnyl8ArFKDYYv12TRoWJuyg== -o monitors=ceph-mon1:6789,cephmon2:6789 -o mds_namespace=yournamespacename cephfs_data
 ~~~
 
 Check if the volume is created:
@@ -101,6 +126,7 @@ volumes:
       path: /container/nginx
       secret: AQDEJ41bnfunnyUl8ArFKDYYv12TRoWJuyg==
       monitors: ceph-mon1:6789,ceph-mon1.147:6789
+      #mds_namespace: yournamespace // Any kind of Kernel supported mount parameters are possible
 
 ~~~
 

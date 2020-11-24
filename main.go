@@ -20,7 +20,6 @@ import (
 const socketAddress = "/run/docker/plugins/cephfs.sock"
 
 type cephfsVolume struct {
-	Secret   string
 	Path     string
 	Monitors string
 	Name     string
@@ -85,8 +84,6 @@ func (d *cephfsDriver) Create(r *volume.CreateRequest) error {
 
 	for key, val := range r.Options {
 		switch key {
-		case "secret":
-			v.Secret = val
 		case "path":
 			v.Path = val
 		case "monitors":
@@ -104,12 +101,6 @@ func (d *cephfsDriver) Create(r *volume.CreateRequest) error {
 
 	if v.Path == "" {
 		return logError("'path' option required")
-	}
-	if v.Secret == "" {
-		return logError("'secret' option required")
-	}
-	if v.Monitors == "" {
-		return logError("'monitors' option required")
 	}
 	if v.Name == "" {
 		return logError("'name' option required")
@@ -254,7 +245,7 @@ func (d *cephfsDriver) Capabilities() *volume.CapabilitiesResponse {
 
 func (d *cephfsDriver) mountVolume(v *cephfsVolume) error {
 
-	cmd := exec.Command("mount", "-t", "ceph", "-o", "name="+v.Name, "-o", "secret="+v.Secret, v.Monitors+":"+v.Path, v.Mountpoint)
+	cmd := exec.Command("mount", "-t", "ceph", "-o", "name="+v.Name, v.Monitors+":"+v.Path, v.Mountpoint)
 
 	for _, option := range v.Options {
 		cmd.Args = append(cmd.Args, "-o", option)
